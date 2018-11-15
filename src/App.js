@@ -12,9 +12,7 @@ class App extends Component {
         <canvas id="result" className="hide"></canvas>
         <div hidden className="app-logo"></div>
         <div className="app-title">
-          <img src="/images/complete-title.png" className="app-main-title"/>
-          <img hidden src="/images/title.png" className="app-main-title"/>
-          <img hidden src="/images/sub-title.png" className="app-sub-title"/>
+          <img src="images/complete-title.png" alt="" className="app-main-title"/>
         </div>
         <CoverEditorComponent/>
       </div>

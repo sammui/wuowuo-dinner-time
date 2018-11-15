@@ -2,26 +2,13 @@ import React, { Component }     from 'react';
 import Draggable                from 'react-draggable';
 import $                        from 'jquery';
 import Slider                   from 'rc-slider';
-import { FacebookShareButton,
-         FacebookIcon }         from 'react-share';
 import Modal                    from 'react-modal';
 
 import 'rc-slider/assets/index.css';
 import './CoverEditorComponent.css';
 
-const imgPath = process.env.PUBLIC_URL + '/assets/';
+const imgPath = process.env.PUBLIC_URL + '/images/';
 const defaultSliderValue = 50
-
-const modalStyles = {
-  content : {
-    top                   : '0',
-    left                  : '0',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '0',
-    transform             : 'translate(-50%, -50%)'
-  }
-};
 
 function newCanvasSize(w, h, rotation) {
     let rads = rotation * Math.PI / 180;
@@ -90,7 +77,6 @@ class App extends Component {
       modalUserImgSize: {
         w: 0, h: 0
       },
-      modalIsOpen: false,
     }
   }
 
@@ -268,21 +254,27 @@ class App extends Component {
     //window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
   }
 
-  closeModal = () => {
-    this.setState({ modalIsOpen: false })
-  }
-
-  openModal = () => {
-    this.setState({ modalIsOpen: true })
-  }
-
   componentDidMount() {
     Modal.setAppElement('body');
+
+    let drag = document.getElementById('drag-area');
+
+    drag.addEventListener("touchmove", this.onTouchMove, false);
+  }
+
+  componentWillUnmount(){
+    let drag = document.getElementById('drag-area');
+
+    drag.removeEventListener("touchmove", this.onTouchMove, false);
+  }
+
+  onTouchMove = (e) => {
+    e.preventDefault()
   }
 
   render() {
     const dragHandlers = {onStart: this.onStart, onStop: this.onStop};
-    const { draggablePostion, modalIsOpen, sliderValue } = this.state
+    const { draggablePostion, sliderValue } = this.state
 
     return (
       <div className="cover-editor">
@@ -295,10 +287,10 @@ class App extends Component {
         <div className="cover-box">
           <img
               className="cover-img"
-              draggable="false"
+              draggable="true"
               src={`${imgPath}object/1.png`}
               alt={'img'}/>
-          <div className="drag-area">
+          <div className="drag-area" id="drag-area">
             <Draggable
               bounds="parent"
               handle=".user-img"
@@ -318,7 +310,7 @@ class App extends Component {
           </div>
         </div>
         <div className="slider">
-          <Slider min={0} max={100} defaultValue={50} value={sliderValue} onChange={this.onResize}/>
+          <Slider min={0} max={100} defaultValue={defaultSliderValue} value={sliderValue} onChange={this.onResize}/>
           <div className="slider-minus">-</div>
           <div className="slider-plus">+</div>
         </div>
@@ -327,45 +319,12 @@ class App extends Component {
             <a
               target='_blank'
               rel='noopener noreferrer'
-              href={'https://wuo-wuo.com/nest-holding-newspaper/each-period-of-nest-reported/800-wo-bao-bao-vol-14-quot-cat-is-hungry-quot-cat-diet-special-issue.html'} className="visit-button"></a>
+              href={'https://wuo-wuo.com/nest-holding-newspaper/each-period-of-nest-reported/800-wo-bao-bao-vol-14-quot-cat-is-hungry-quot-cat-diet-special-issue.html'} className="visit-button"> </a>
           </div>
           <div className="download">
             <div className="download-button" onClick={this.download}></div>
           </div>
         </div>
-
-        <Modal
-          isOpen={modalIsOpen}
-          onAfterOpen={null}
-          onRequestClose={this.closeModal}
-          style={modalStyles}
-          contentLabel="Example Modal"
-        >
-          <div className="cover-box-modal">
-            <img
-                className="cover-img-modal"
-                draggable="false"
-                src={`${imgPath}object/2.png`}
-                alt={'img'}/>
-            <div className="drag-area-modal">
-              <Draggable
-                bounds="parent"
-                handle=".user-img-modal"
-                position={draggablePostion}
-                {...dragHandlers} >
-                <div className="user-img-wrapper-modal">
-                  <img
-                    id="user-img-modal"
-                    className="user-img-modal"
-                    draggable="false"
-                    src={`${imgPath}wuo_sample.png`}
-                    alt={'img'}
-                    onLoad={this.onModalImgLoad}/>
-                </div>
-              </Draggable>
-            </div>
-          </div>
-        </Modal>
       </div>
     );
   }

@@ -11,7 +11,7 @@
 }
 
 .app-logo {
-    background-image: url("/images/logo.png");
+    background-image: url("assets/logo.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-size: 70px 25px;
