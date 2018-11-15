@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "42bba254fd3efe33032f",
+    "revision": "499e333d6035ed9de9f1",
     "url": "/wuowuo-dinner-time/static/css/main.21ea584f.chunk.css"
   },
   {
-    "revision": "42bba254fd3efe33032f",
-    "url": "/wuowuo-dinner-time/static/js/main.42bba254.chunk.js"
+    "revision": "499e333d6035ed9de9f1",
+    "url": "/wuowuo-dinner-time/static/js/main.499e333d.chunk.js"
   },
   {
     "revision": "29e4dff59da53bd2d7fd",
@@ -20,19 +20,19 @@ self.__precacheManifest = [
     "url": "/wuowuo-dinner-time/static/js/runtime~main.322d13e5.js"
   },
   {
-    "revision": "99866c9af7ebdddc786853a3e7380597",
-    "url": "/wuowuo-dinner-time/static/media/upload-hover.99866c9a.png"
-  },
-  {
     "revision": "75c39826dd85510d3b91d163e728a4fa",
     "url": "/wuowuo-dinner-time/static/media/upload-orig.75c39826.png"
+  },
+  {
+    "revision": "99866c9af7ebdddc786853a3e7380597",
+    "url": "/wuowuo-dinner-time/static/media/upload-hover.99866c9a.png"
   },
   {
     "revision": "975a00af7dbb6dc3deecdaef359cb4af",
     "url": "/wuowuo-dinner-time/static/media/dark_cat.975a00af.png"
   },
   {
-    "revision": "490c9e544ea52c32a63268e03cdea5c4",
+    "revision": "d9fa0058c12dfc437f859ae220ca3402",
     "url": "/wuowuo-dinner-time/index.html"
   }
 ];

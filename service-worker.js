@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/wuowuo-dinner-time/precache-manifest.48b8f6a9fb69e1ae483e4a25a0e49f1b.js"
+  "/wuowuo-dinner-time/precache-manifest.c2d6c84546559b66abfcc805fb10e6e4.js"
 );
 
 workbox.clientsClaim();
