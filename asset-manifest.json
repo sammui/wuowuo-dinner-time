@@ -1,7 +1,7 @@
 {
   "main.css": "/wuowuo-dinner-time/static/css/main.6db940a4.chunk.css",
-  "main.js": "/wuowuo-dinner-time/static/js/main.a4a5cfc6.chunk.js",
-  "main.js.map": "/wuowuo-dinner-time/static/js/main.a4a5cfc6.chunk.js.map",
+  "main.js": "/wuowuo-dinner-time/static/js/main.827060d8.chunk.js",
+  "main.js.map": "/wuowuo-dinner-time/static/js/main.827060d8.chunk.js.map",
   "static/css/1.0527c779.chunk.css": "/wuowuo-dinner-time/static/css/1.0527c779.chunk.css",
   "static/js/1.29e4dff5.chunk.js": "/wuowuo-dinner-time/static/js/1.29e4dff5.chunk.js",
   "static/js/1.29e4dff5.chunk.js.map": "/wuowuo-dinner-time/static/js/1.29e4dff5.chunk.js.map",
@@ -11,6 +11,6 @@
   "static/css/main.6db940a4.chunk.css.map": "/wuowuo-dinner-time/static/css/main.6db940a4.chunk.css.map",
   "static/css/1.0527c779.chunk.css.map": "/wuowuo-dinner-time/static/css/1.0527c779.chunk.css.map",
   "index.html": "/wuowuo-dinner-time/index.html",
-  "precache-manifest.f21d196bae0809900332bc138c69c1e6.js": "/wuowuo-dinner-time/precache-manifest.f21d196bae0809900332bc138c69c1e6.js",
+  "precache-manifest.d32c950ee2e31bcf75d411405bb6da25.js": "/wuowuo-dinner-time/precache-manifest.d32c950ee2e31bcf75d411405bb6da25.js",
   "service-worker.js": "/wuowuo-dinner-time/service-worker.js"
 }
