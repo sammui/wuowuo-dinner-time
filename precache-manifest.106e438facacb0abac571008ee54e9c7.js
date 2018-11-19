@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/wuowuo-dinner-time/static/media/dark_cat.975a00af.png"
   },
   {
-    "revision": "bbd53a443d88fb86223043a0a2e1c3ad",
+    "revision": "e3eedadd871d39d89b4ca065066831c7",
     "url": "/wuowuo-dinner-time/index.html"
   }
 ];
