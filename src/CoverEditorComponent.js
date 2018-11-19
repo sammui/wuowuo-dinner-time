@@ -71,12 +71,6 @@ class App extends Component {
       userImgSize: {
         w: 0, h: 0
       },
-      modalDraggablePostion: {
-        x: 0, y: 100
-      },
-      modalUserImgSize: {
-        w: 0, h: 0
-      },
     }
   }
 
@@ -88,7 +82,7 @@ class App extends Component {
 
     if (!file) {
       return
-    } else if (!(file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/gif')) {
+    //} else if (!(file.type === 'image/jpeg' || file.type === 'image/png' || file.type === 'image/gif')) {
       // alert
     } else {
       resizeReader.readAsDataURL(file);
@@ -102,7 +96,7 @@ class App extends Component {
 
             /* Resize */
             let canvas = document.createElement('canvas'),
-                max_size = 1024,
+                max_size = 512*512,
                 width = image.width,
                 height = image.height;
             if (width > height) {
@@ -148,39 +142,53 @@ class App extends Component {
               let imgDataUrl = canvas.toDataURL('image/jpeg');
               document.getElementById('user-img').setAttribute('src', imgDataUrl);
               //document.getElementById('user-img-modal').setAttribute('src', imgDataUrl);
-
-
             })
         }
      }
   }
 
   onImgLoad = (e) => {
+
+    /* Image size should be:          */
+    /* width is cover-img.width       */
+    /* height is 3/5 cover-img.height */
+
+    let coverSize   = getImgSize('.cover-img')
+    let coverWidth  = coverSize.width
+    let coverHeight = coverSize.height
+    let coverRatio  = coverWidth*1.0/coverHeight
+
+    let imageSize   = getImgSize('.user-img')
+    let imageWidth  = imageSize.width
+    let imageHeight = imageSize.height
+    let imageRatio  = imageWidth*1.0/imageHeight
+
+    if (coverRatio > imageRatio) {
+      /* Image is tall and slim */
+      imageWidth = coverWidth
+      imageHeight = coverWidth*1.0/imageRatio
+    } else {
+      /* Image is short and flat */
+      imageHeight = coverHeight*5.0/7
+      imageWidth = imageRatio*imageHeight
+    }
+
+    let draggableX = (getImgSize('.drag-area').width - imageWidth)/2.0
+    let draggableY = (getImgSize('.drag-area').height - coverHeight)/2.0 + coverHeight*2/7.0
+
+    $('.user-img').css( "maxWidth", imageWidth + "px" )
+    $('.user-img').css( "maxHeight", imageHeight + "px" )
+
     this.setState({
       draggablePostion:
         {
-          x: (getImgSize('.drag-area').width - getImgSize('.user-img').width)/2.0,
-          y: (getImgSize('.drag-area').height - getImgSize('.user-img').height)/2.0 + 20
+          x: draggableX,
+          y: draggableY,
         },
       userImgSize:
         {
-          w: getImgSize('.user-img').width,
-          h: getImgSize('.user-img').height
-        }
-    })
-  }
-
-  onModalImgLoad = (e) => {
-    this.setState({
-      modalDraggablePostion:
-        {
-          x: (getImgSize('.drag-area-modal').width - getImgSize('.user-img-modal').width)/2.0,
-          y: (getImgSize('.drag-area-modal').height - getImgSize('.user-img-modal').height)/2.0 + 20
-        },
-      modalUserImgSize:
-        {
-          w: getImgSize('.user-img-modal').width,
-          h: getImgSize('.user-img-modal').height
+          w: imageWidth,
+          h: imageHeight,
         }
     })
   }
@@ -194,19 +202,11 @@ class App extends Component {
     this.setState({ sliderValue: number })
   }
 
-  onModalResize = (number) => {
-    const { modalUserImgSize } = this.state
-
-    $('.user-img-modal').css( "maxWidth", modalUserImgSize.w + modalUserImgSize.w*(number - 50)/100.0 + "px" )
-    $('.user-img-modal').css( "maxHeight", modalUserImgSize.h + modalUserImgSize.h*(number - 50)/100.0 + "px" )
-  }
-
   onStart = () => {
     const { activeDrags } = this.state
     this.setState({
       activeDrags: activeDrags + 1,
       draggablePostion: null,
-      modalDraggablePostion: null,
     });
 
   }
@@ -281,7 +281,7 @@ class App extends Component {
         <div className="upload">
           <label>
             <div className="upload-button">上傳照片</div>
-            <input type="file" id="getval" onChange={this.onUpload}/>
+            <input type="file" id="getval" accept="image/*;capture=camera" onChange={this.onUpload}/>
           </label>
         </div>
         <div className="cover-box">

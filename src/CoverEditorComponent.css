@@ -135,15 +135,16 @@ input[type="file"] {
 /* cover */
 
 .cover-box {
-  background-color: #C1C1C1;
-
-  height: 240px;
-  width: 180px;
   position: relative;
-  overflow: hidden;
-  padding: 0;
 
+  width: 180px;
+  height: 240px;
+
+  padding: 0;
   margin: 10px auto 10px auto;
+
+  background-color: #C1C1C1;
+  overflow: hidden;
   z-index: 10;
 }
 
@@ -151,28 +152,7 @@ input[type="file"] {
   height: 100%;
   width: 100%;
   position: relative;
-  pointer-events:none;
-  z-index: 10;
-}
-
-.cover-box-modal {
-  background-color: #C1C1C1;
-
-  height: 240px;
-  width: 180px;
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-
-  margin: 150px auto 10px auto;
-  z-index: 10;
-}
-
-.cover-img-modal {
-  height: 100%;
-  width: 100%;
-  position: relative;
-  pointer-events:none;
+  pointer-events: none;
   z-index: 10;
 }
 
@@ -181,67 +161,43 @@ input[type="file"] {
 .drag-area {
   position: absolute;
   margin: 10px auto;
-  height: 480px;
-  width: 360px;
-  left: -90px;
-  top: -120px;
-  z-index: 5;
-}
 
-.drag-area-modal {
-  position: absolute;
-  margin: 10px auto;
-  height: 480px;
   width: 360px;
+  height: 480px;
   left: -90px;
   top: -120px;
+
   z-index: 5;
 }
 
 /* draggable item */
 
 .user-img-wrapper {
-  display: block;
-  max-width: 250px;
-  max-height: 200px;
+
   width: auto;
   height: auto;
+
+  max-width: 250px;
+  max-height: 200px;
+
+  display: block;
   z-index: 5;
 }
 
 .user-img {
-  max-width: 250px;
-  max-height: 200px;
+
   width: auto;
   height: auto;
 
+  max-width: 250px;
+  max-height: 200px;
+
   position: absolute;
-  z-index: 5;
   left: 0px;
   top: 0px;
 
   overflow: hidden;
-}
-
-.user-img-wrapper-modal {
-  display: block;
-  max-width: 200px;
-  max-height: 240px;
-  width: auto;
-  height: auto;
   z-index: 5;
-}
-
-.user-img-modal {
-  max-width: 200px;
-  max-height: 240px;
-  width: auto;
-  height: auto;
-
-  position: absolute;
-  z-index: 5;
-  left: 0px;
-  top: 0px;
 }
 
 .slider {
