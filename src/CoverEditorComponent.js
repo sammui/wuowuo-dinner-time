@@ -106,17 +106,17 @@ class App extends Component {
                 max_size = 512*512,
                 width = image.width,
                 height = image.height;
-            if (width > height) {
-                if (width > max_size) {
-                    height *= max_size / width;
-                    width = max_size;
-                }
-            } else {
-                if (height > max_size) {
-                    width *= max_size / height;
-                    height = max_size;
-                }
-            }
+            // if (width > height) {
+            //     if (width > max_size) {
+            //         height *= max_size / width;
+            //         width = max_size;
+            //     }
+            // } else {
+            //     if (height > max_size) {
+            //         width *= max_size / height;
+            //         height = max_size;
+            //     }
+            // }
 
             /* set new orientation */
             getOrientation(file, (orientation) => {
@@ -230,7 +230,7 @@ class App extends Component {
       action: 'Download'
     });
 
-    let scale = 3
+    let scale = 8
 
     let coverImg = $('.cover-img')
     let userImg  = $('.user-img')
@@ -252,15 +252,23 @@ class App extends Component {
     ctx.drawImage(userImage, userImg.offset().left*scale - coverImg.offset().left*scale, userImg.offset().top*scale - coverImg.offset().top*scale, userImg.width()*scale, userImg.height()*scale);
     ctx.drawImage(coverImage, 0, 0, coverImg.width()*scale, coverImg.height()*scale);
 
-    const base64 = resize_canvas.toDataURL("image/png");
+    // const base64 = resize_canvas.toDataURL("image/png");
+    // const link = document.createElement('a');
+    // link.href = base64
+    // link.setAttribute('download', 'wuo.png');
+
+    // console.log('download:',base64)
+
+    // document.body.appendChild(link);
+    // link.click();
     const link = document.createElement('a');
-    link.href = base64
-    link.setAttribute('download', 'wuo.png');
+    resize_canvas.toBlob((blob) => {
+      link.href = URL.createObjectURL(blob);
+      link.setAttribute('download', 'wuo.png');
 
-    console.log('download:',base64)
-
-    document.body.appendChild(link);
-    link.click();
+      document.body.appendChild(link);
+      link.click();
+    })
 
     //let u = base64;
     //let t='img'
