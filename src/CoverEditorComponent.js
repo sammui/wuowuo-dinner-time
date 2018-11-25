@@ -3,6 +3,7 @@ import Draggable                from 'react-draggable';
 import $                        from 'jquery';
 import Slider                   from 'rc-slider';
 import Modal                    from 'react-modal';
+import ReactGA                  from 'react-ga';
 
 import 'rc-slider/assets/index.css';
 import './CoverEditorComponent.css';
@@ -75,6 +76,12 @@ class App extends Component {
   }
 
   onUpload = (e) => {
+
+    ReactGA.event({
+      category: 'User',
+      action: 'Upload'
+    });
+
     let file          = document.querySelector('input[type=file]').files[0];
     let resizeReader  = new FileReader();
 
@@ -217,6 +224,12 @@ class App extends Component {
   }
 
   download = () => {
+
+    ReactGA.event({
+      category: 'User',
+      action: 'Download'
+    });
+
     let scale = 3
 
     let coverImg = $('.cover-img')
@@ -319,7 +332,14 @@ class App extends Component {
             <a
               target='_blank'
               rel='noopener noreferrer'
-              href={'https://wuo-wuo.com/nest-holding-newspaper/each-period-of-nest-reported/800-wo-bao-bao-vol-14-quot-cat-is-hungry-quot-cat-diet-special-issue.html'} className="visit-button"> </a>
+              href={'https://wuo-wuo.com/nest-holding-newspaper/each-period-of-nest-reported/800-wo-bao-bao-vol-14-quot-cat-is-hungry-quot-cat-diet-special-issue.html'}
+              className="visit-button"
+              onClick={() => {
+                ReactGA.event({
+                  category: 'User',
+                  action: 'Visit Wuo shop'
+                });
+              }}></a>
           </div>
           <div className="download">
             <div className="download-button" onClick={this.download}></div>
