@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "910e05c301dc92343771",
+    "revision": "aae947aea40c539a59a1",
     "url": "/wuowuo-dinner-time/static/css/main.e43f206d.chunk.css"
   },
   {
-    "revision": "910e05c301dc92343771",
-    "url": "/wuowuo-dinner-time/static/js/main.910e05c3.chunk.js"
+    "revision": "aae947aea40c539a59a1",
+    "url": "/wuowuo-dinner-time/static/js/main.aae947ae.chunk.js"
   },
   {
     "revision": "f5ae7298a7ea6e239827",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/wuowuo-dinner-time/static/media/dark_cat.975a00af.png"
   },
   {
-    "revision": "c0060fb0f3a353b8ce9c26541228f7c6",
+    "revision": "6f8d5fb6a401f66a5ba644696b19fc27",
     "url": "/wuowuo-dinner-time/index.html"
   }
 ];
