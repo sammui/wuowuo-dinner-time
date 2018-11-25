@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "/wuowuo-dinner-time/static/js/runtime~main.322d13e5.js"
   },
   {
-    "revision": "99866c9af7ebdddc786853a3e7380597",
-    "url": "/wuowuo-dinner-time/static/media/upload-hover.99866c9a.png"
-  },
-  {
     "revision": "75c39826dd85510d3b91d163e728a4fa",
     "url": "/wuowuo-dinner-time/static/media/upload-orig.75c39826.png"
+  },
+  {
+    "revision": "99866c9af7ebdddc786853a3e7380597",
+    "url": "/wuowuo-dinner-time/static/media/upload-hover.99866c9a.png"
   },
   {
     "revision": "975a00af7dbb6dc3deecdaef359cb4af",
