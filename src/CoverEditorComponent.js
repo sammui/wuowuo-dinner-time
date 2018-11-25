@@ -230,7 +230,7 @@ class App extends Component {
       action: 'Download'
     });
 
-    let scale = 8
+    let scale = 15
 
     let coverImg = $('.cover-img')
     let userImg  = $('.user-img')
